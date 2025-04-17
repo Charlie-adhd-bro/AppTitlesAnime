@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
-using System.Security.Cryptography.X509Certificates;
 using AppContext = AppTitlesAnime.Modules.AppContext;
+using Type = AppTitlesAnime.Modules.Type;
 namespace AppTitlesAnime
 {
     public partial class FormListTypes : Form
@@ -35,33 +35,55 @@ namespace AppTitlesAnime
             this.db.Dispose();
             this.db = null;
         }
-        private void FormListTypes_Load(object sender, EventArgs e)
+
+        private void BtnAddType_Click(object sender, EventArgs e)
         {
+            FormAddType formAddType = new();
+            DialogResult result = formAddType.ShowDialog(this);
 
-        }
-        private void btnUpdateType_Click(object sender, EventArgs e)
-        {
+            if (result == DialogResult.Cancel)
+                return;
 
-        }
+            Type type = new Type();
+            type.TypeName = formAddType.textBoxTypeName.Text;
 
-        private void btnDeleteType_Click(object sender, EventArgs e)
-        {
+            db.Types.Add(type);
+            db.SaveChanges();
 
-        }
+            MessageBox.Show("Новый объект добавлен");
 
-        private void dataGridViewTypes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void btnAddType_Click(object sender, EventArgs e)
-        {
-            FormAddType formAddType = new FormAddType();
-            formAddType.ShowDialog();
+            this.dataGridViewTypes.DataSource = this.db.Types.Local.OrderBy(o => o.TypeName).ToList();
         }
 
-        private void dataGridViewTypes_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private void BtnUpdateType_Click(object sender, EventArgs e)
         {
+            
+            if (dataGridViewTypes.SelectedRows.Count == 0)
+                return;
+
+            int index = dataGridViewTypes.SelectedRows[0].Index;
+            short id = 0;
+
+            bool converted = Int16.TryParse(dataGridViewTypes[0, index].Value.ToString(), out id);
+
+            if (!converted)
+                return;
+
+            Type type = db.Types.Find(id);
+            FormAddType formAddType = new();
+            formAddType.textBoxTypeName.Text = type.TypeName;
+
+            DialogResult result = formAddType.ShowDialog(this);
+
+            if (result == DialogResult.Cancel)
+                return;
+            type.TypeName = formAddType.textBoxTypeName.Text;
+            db.Types.Update(type);
+            db.SaveChanges();
+
+            MessageBox.Show("Объект изменен");
+
+            this.dataGridViewTypes.DataSource = this.db.Types.Local.OrderBy(o => o.TypeName).ToList();
 
         }
     }

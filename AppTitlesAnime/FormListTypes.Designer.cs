@@ -28,15 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             flowLayoutPanel = new FlowLayoutPanel();
             btnAddType = new Button();
             btnUpdateType = new Button();
             btnDeleteType = new Button();
             panelFill = new Panel();
             dataGridViewTypes = new DataGridView();
+            errorProvider = new ErrorProvider(components);
             flowLayoutPanel.SuspendLayout();
             panelFill.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTypes).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
             SuspendLayout();
             // 
             // flowLayoutPanel
@@ -63,7 +66,7 @@
             btnAddType.TabIndex = 3;
             btnAddType.Text = "Добавить";
             btnAddType.UseVisualStyleBackColor = true;
-            btnAddType.Click += btnAddType_Click;
+            btnAddType.Click += BtnAddType_Click;
             // 
             // btnUpdateType
             // 
@@ -77,6 +80,7 @@
             btnUpdateType.Text = "Редактировать";
             btnUpdateType.UseMnemonic = false;
             btnUpdateType.UseVisualStyleBackColor = true;
+            btnUpdateType.Click += BtnUpdateType_Click;
             // 
             // btnDeleteType
             // 
@@ -112,7 +116,10 @@
             dataGridViewTypes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewTypes.Size = new Size(954, 325);
             dataGridViewTypes.TabIndex = 0;
-            dataGridViewTypes.CellContentClick += dataGridViewTypes_CellContentClick_1;
+            // 
+            // errorProvider
+            // 
+            errorProvider.ContainerControl = this;
             // 
             // FormListTypes
             // 
@@ -126,11 +133,11 @@
             Margin = new Padding(5);
             Name = "FormListTypes";
             Text = "Список типов аниме";
-            Load += FormListTypes_Load;
             flowLayoutPanel.ResumeLayout(false);
             flowLayoutPanel.PerformLayout();
             panelFill.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewTypes).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -142,5 +149,6 @@
         private Button btnUpdateType;
         private Panel panelFill;
         private DataGridView dataGridViewTypes;
+        private ErrorProvider errorProvider;
     }
 }

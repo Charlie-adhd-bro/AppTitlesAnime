@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace AppTitlesAnime.Modules;
 
@@ -80,11 +78,11 @@ public partial class AppContext : DbContext
                 .ValueGeneratedOnAdd()
                 .HasColumnName("id_status");
 
-            entity.HasOne(d => d.IdAnimeNavigation).WithMany(p => p.TitleStatuses)
+            entity.HasOne(d => d.AnimeTitle).WithMany(p => p.TitleStatuses)
                 .HasForeignKey(d => d.IdAnime)
                 .HasConstraintName("fk_title_statuses_to_anime_titles");
 
-            entity.HasOne(d => d.IdStatusNavigation).WithMany(p => p.TitleStatuses)
+            entity.HasOne(d => d.Status).WithMany(p => p.TitleStatuses)
                 .HasForeignKey(d => d.IdStatus)
                 .HasConstraintName("fk_title_statuses_to_statuses");
         });
@@ -99,11 +97,11 @@ public partial class AppContext : DbContext
             entity.Property(e => e.IdAnime).HasColumnName("id_anime");
             entity.Property(e => e.IdGenre).HasColumnName("id_genre");
 
-            entity.HasOne(d => d.IdAnimeNavigation).WithMany(p => p.TitlesGenres)
+            entity.HasOne(d => d.AnimeTitle).WithMany(p => p.TitlesGenres)
                 .HasForeignKey(d => d.IdAnime)
                 .HasConstraintName("fk_titles_genres_to_anime_titles");
 
-            entity.HasOne(d => d.IdGenreNavigation).WithMany(p => p.TitlesGenres)
+            entity.HasOne(d => d.Genre).WithMany(p => p.TitlesGenres)
                 .HasForeignKey(d => d.IdGenre)
                 .HasConstraintName("fk_titles_genres_to_genres");
         });

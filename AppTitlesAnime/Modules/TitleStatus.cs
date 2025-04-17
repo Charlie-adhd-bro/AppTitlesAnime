@@ -12,7 +12,7 @@ public partial class TitleStatus
 
 
     //навигационнные св-ва
-    public virtual AnimeTitle IdAnimeNavigation { get; set; } = null!;
+    public virtual AnimeTitle AnimeTitle { get; set; } = null!;
 
-    public virtual Status IdStatusNavigation { get; set; } = null!;
+    public virtual Status Status { get; set; } = null!;
 }
