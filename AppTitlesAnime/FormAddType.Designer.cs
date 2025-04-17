@@ -59,8 +59,8 @@
             textBoxTypeName.Name = "textBoxTypeName";
             textBoxTypeName.Size = new Size(338, 32);
             textBoxTypeName.TabIndex = 1;
-            textBoxTypeName.TextChanged += textBoxTypeName_TextChanged;
-            textBoxTypeName.Validating += textBoxTypeName_Validating;
+            textBoxTypeName.TextChanged += TextBoxTypeName_TextChanged;
+            textBoxTypeName.Validating += TextBoxTypeName_Validating;
             // 
             // labelTypeName
             // 
@@ -71,7 +71,6 @@
             labelTypeName.Size = new Size(104, 25);
             labelTypeName.TabIndex = 0;
             labelTypeName.Text = "Тип аниме";
-            labelTypeName.Click += label1_Click;
             // 
             // btnSaveChanges
             // 
@@ -83,7 +82,6 @@
             btnSaveChanges.TabIndex = 0;
             btnSaveChanges.Text = "Сохранить";
             btnSaveChanges.UseVisualStyleBackColor = true;
-            btnSaveChanges.Click += btnSaveChanges_Click;
             // 
             // btnCancel
             // 
@@ -95,7 +93,6 @@
             btnCancel.TabIndex = 1;
             btnCancel.Text = "Отмена";
             btnCancel.UseVisualStyleBackColor = true;
-            btnCancel.Click += btnCancel_Click;
             // 
             // flowLayoutPanel
             // 

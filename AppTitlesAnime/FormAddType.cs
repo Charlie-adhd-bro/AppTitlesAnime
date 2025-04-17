@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.ComponentModel;
 
 namespace AppTitlesAnime
 {
@@ -17,24 +9,7 @@ namespace AppTitlesAnime
             InitializeComponent();
         }
 
-
-
-        private void btnSaveChanges_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxTypeName_TextChanged(object sender, EventArgs e)
+        private void TextBoxTypeName_TextChanged(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(textBoxTypeName.Text))
             {
@@ -49,7 +24,7 @@ namespace AppTitlesAnime
         }
 
 
-        private void textBoxTypeName_Validating(object sender, CancelEventArgs e)
+        private void TextBoxTypeName_Validating(object sender, CancelEventArgs e)
         {
             if (String.IsNullOrEmpty(textBoxTypeName.Text))
             {

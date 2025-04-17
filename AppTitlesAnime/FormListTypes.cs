@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
-using System.Windows.Forms;
 using AppContext = AppTitlesAnime.Modules.AppContext;
 using Type = AppTitlesAnime.Modules.Type;
 namespace AppTitlesAnime
@@ -89,7 +88,7 @@ namespace AppTitlesAnime
 
         }
 
-        private void btnDeleteType_Click(object sender, EventArgs e)
+        private void BtnDeleteType_Click(object sender, EventArgs e)
         {
             if (dataGridViewTypes.SelectedRows.Count == 0)
                 return;

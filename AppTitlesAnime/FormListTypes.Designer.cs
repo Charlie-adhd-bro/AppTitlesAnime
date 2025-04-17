@@ -92,7 +92,7 @@
             btnDeleteType.TabIndex = 5;
             btnDeleteType.Text = "Удалить";
             btnDeleteType.UseVisualStyleBackColor = true;
-            btnDeleteType.Click += btnDeleteType_Click;
+            btnDeleteType.Click += BtnDeleteType_Click;
             // 
             // panelFill
             // 

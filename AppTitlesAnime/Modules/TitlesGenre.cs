@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace AppTitlesAnime.Modules;
+﻿namespace AppTitlesAnime.Modules;
 
 public partial class TitlesGenre
 {
