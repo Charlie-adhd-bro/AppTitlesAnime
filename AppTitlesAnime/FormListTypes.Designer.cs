@@ -59,7 +59,6 @@
             // 
             btnAddType.AutoSize = true;
             btnAddType.BackColor = SystemColors.Control;
-            btnAddType.Dock = DockStyle.Top;
             btnAddType.Location = new Point(13, 13);
             btnAddType.Name = "btnAddType";
             btnAddType.Size = new Size(106, 40);
@@ -72,10 +71,9 @@
             // 
             btnUpdateType.AutoSize = true;
             btnUpdateType.BackColor = SystemColors.Control;
-            btnUpdateType.Dock = DockStyle.Top;
             btnUpdateType.Location = new Point(125, 13);
             btnUpdateType.Name = "btnUpdateType";
-            btnUpdateType.Size = new Size(164, 40);
+            btnUpdateType.Size = new Size(151, 40);
             btnUpdateType.TabIndex = 4;
             btnUpdateType.Text = "Редактировать";
             btnUpdateType.UseMnemonic = false;
@@ -86,7 +84,7 @@
             // 
             btnDeleteType.AutoSize = true;
             btnDeleteType.BackColor = SystemColors.Control;
-            btnDeleteType.Location = new Point(295, 13);
+            btnDeleteType.Location = new Point(282, 13);
             btnDeleteType.Name = "btnDeleteType";
             btnDeleteType.Size = new Size(92, 40);
             btnDeleteType.TabIndex = 5;
