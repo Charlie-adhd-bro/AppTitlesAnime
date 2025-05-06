@@ -1,5 +1,4 @@
-﻿using AppTitlesAnime.Modules;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
 using AppContext = AppTitlesAnime.Modules.AppContext;
 using Status = AppTitlesAnime.Modules.Status;
@@ -37,7 +36,7 @@ namespace AppTitlesAnime
 
         private void BtnAddStatus_Click(object sender, EventArgs e)
         {
-            FormAddStatuses formAddStatus = new();
+            FormAddUpdateStatuses formAddStatus = new();
             DialogResult result = formAddStatus.ShowDialog(this);
 
             if (result == DialogResult.Cancel)
@@ -68,7 +67,7 @@ namespace AppTitlesAnime
                 return;
 
             Status status = db.Statuses.Find(id);
-            FormAddStatuses formAddStatus = new();
+            FormAddUpdateStatuses formAddStatus = new();
             formAddStatus.textBoxStatusName.Text = status.StatusName;
 
             DialogResult result = formAddStatus.ShowDialog(this);

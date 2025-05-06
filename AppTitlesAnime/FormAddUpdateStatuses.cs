@@ -3,49 +3,49 @@ using AppContext = AppTitlesAnime.Modules.AppContext;
 
 namespace AppTitlesAnime
 {
-    public partial class FormAddGenre : Form
+    public partial class FormAddUpdateStatuses : Form
     {
         private AppContext db;
 
-        public FormAddGenre()
+        public FormAddUpdateStatuses()
         {
             InitializeComponent();
             db = new AppContext(); 
         }
 
-        private void TextBoxGenreName_TextChanged(object sender, EventArgs e)
+        private void textBoxStatusName_TextChanged(object sender, EventArgs e)
         {
-            ValidateGenreName();
+            ValidateStatusName();
         }
 
-        private void textBoxGenreName_Validating(object sender, CancelEventArgs e)
+        private void textBoxStatusName_Validating(object sender, CancelEventArgs e)
         {
-            ValidateGenreName();
+            ValidateStatusName();
         }
 
-        private void ValidateGenreName()
+        private void ValidateStatusName()
         {
-            if (String.IsNullOrEmpty(textBoxGenreName.Text))
+            if (String.IsNullOrEmpty(textBoxStatusName.Text))
             {
-                errorProvider.SetError(textBoxGenreName, "Поле не может быть пустым");
+                errorProvider.SetError(textBoxStatusName, "Поле не может быть пустым");
                 btnSaveChanges.Enabled = false;
                 return;
             }
 
-            string userGenre = textBoxGenreName.Text.Trim();
+            string userStatus = textBoxStatusName.Text.Trim();
 
             try
             {
-                bool genreExists = db.Genres.Any(g => g.GenreName.ToLower() == userGenre.ToLower());
+                bool statusExists = db.Statuses.Any(g => g.StatusName.ToLower() == userStatus.ToLower());
 
-                if (genreExists)
+                if (statusExists)
                 {
-                    errorProvider.SetError(textBoxGenreName, "Такой объект уже существует");
+                    errorProvider.SetError(textBoxStatusName, "Такой объект уже существует");
                     btnSaveChanges.Enabled = false;
                 }
                 else
                 {
-                    errorProvider.SetError(textBoxGenreName, string.Empty);
+                    errorProvider.SetError(textBoxStatusName, string.Empty);
                     btnSaveChanges.Enabled = true;
                 }
             }

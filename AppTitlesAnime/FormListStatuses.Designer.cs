@@ -130,6 +130,7 @@
             Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Margin = new Padding(5);
             Name = "FormListStatuses";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Список статусов аниме";
             panelFill.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewStatus).EndInit();

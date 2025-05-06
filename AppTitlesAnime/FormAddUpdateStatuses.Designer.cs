@@ -1,6 +1,6 @@
 ﻿namespace AppTitlesAnime
 {
-    partial class FormAddGenre
+    partial class FormAddUpdateStatuses
     {
         /// <summary>
         /// Required designer variable.
@@ -29,45 +29,22 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            textBoxGenreName = new TextBox();
-            labelGenreName = new Label();
             panelFill = new Panel();
-            flowLayoutPanel = new FlowLayoutPanel();
+            textBoxStatusName = new TextBox();
+            labelTypeName = new Label();
             btnSaveChanges = new Button();
             btnCancel = new Button();
+            flowLayoutPanel = new FlowLayoutPanel();
             errorProvider = new ErrorProvider(components);
             panelFill.SuspendLayout();
             flowLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
             SuspendLayout();
             // 
-            // textBoxGenreName
-            // 
-            textBoxGenreName.Dock = DockStyle.Top;
-            textBoxGenreName.Location = new Point(10, 35);
-            textBoxGenreName.Margin = new Padding(5);
-            textBoxGenreName.Name = "textBoxGenreName";
-            textBoxGenreName.Size = new Size(338, 32);
-            textBoxGenreName.TabIndex = 1;
-            textBoxGenreName.TextChanged += TextBoxGenreName_TextChanged;
-            textBoxGenreName.Validating += textBoxGenreName_Validating;
-            // 
-            // labelGenreName
-            // 
-            labelGenreName.AutoSize = true;
-            labelGenreName.Dock = DockStyle.Top;
-            labelGenreName.Location = new Point(10, 10);
-            labelGenreName.Margin = new Padding(5, 0, 5, 0);
-            labelGenreName.Name = "labelGenreName";
-            labelGenreName.Size = new Size(120, 25);
-            labelGenreName.TabIndex = 0;
-            labelGenreName.Text = "Жанр аниме";
-            // 
             // panelFill
             // 
-            panelFill.AutoSize = true;
-            panelFill.Controls.Add(textBoxGenreName);
-            panelFill.Controls.Add(labelGenreName);
+            panelFill.Controls.Add(textBoxStatusName);
+            panelFill.Controls.Add(labelTypeName);
             panelFill.Dock = DockStyle.Fill;
             panelFill.Location = new Point(0, 0);
             panelFill.Margin = new Padding(5);
@@ -76,18 +53,27 @@
             panelFill.Size = new Size(368, 73);
             panelFill.TabIndex = 3;
             // 
-            // flowLayoutPanel
+            // textBoxStatusName
             // 
-            flowLayoutPanel.AutoSize = true;
-            flowLayoutPanel.Controls.Add(btnSaveChanges);
-            flowLayoutPanel.Controls.Add(btnCancel);
-            flowLayoutPanel.Dock = DockStyle.Bottom;
-            flowLayoutPanel.Location = new Point(0, 73);
-            flowLayoutPanel.Margin = new Padding(0);
-            flowLayoutPanel.Name = "flowLayoutPanel";
-            flowLayoutPanel.Padding = new Padding(10);
-            flowLayoutPanel.Size = new Size(368, 65);
-            flowLayoutPanel.TabIndex = 4;
+            textBoxStatusName.Dock = DockStyle.Top;
+            textBoxStatusName.Location = new Point(10, 35);
+            textBoxStatusName.Margin = new Padding(5);
+            textBoxStatusName.Name = "textBoxStatusName";
+            textBoxStatusName.Size = new Size(338, 33);
+            textBoxStatusName.TabIndex = 1;
+            textBoxStatusName.TextChanged += textBoxStatusName_TextChanged;
+            textBoxStatusName.Validating += textBoxStatusName_Validating;
+            // 
+            // labelTypeName
+            // 
+            labelTypeName.AutoSize = true;
+            labelTypeName.Dock = DockStyle.Top;
+            labelTypeName.Location = new Point(10, 10);
+            labelTypeName.Margin = new Padding(5, 0, 5, 0);
+            labelTypeName.Name = "labelTypeName";
+            labelTypeName.Size = new Size(128, 25);
+            labelTypeName.TabIndex = 0;
+            labelTypeName.Text = "Статус аниме";
             // 
             // btnSaveChanges
             // 
@@ -113,11 +99,25 @@
             btnCancel.Text = "Отмена";
             btnCancel.UseVisualStyleBackColor = true;
             // 
+            // flowLayoutPanel
+            // 
+            flowLayoutPanel.AutoSize = true;
+            flowLayoutPanel.Controls.Add(btnSaveChanges);
+            flowLayoutPanel.Controls.Add(btnCancel);
+            flowLayoutPanel.Dock = DockStyle.Bottom;
+            flowLayoutPanel.Font = new Font("Segoe UI", 14F);
+            flowLayoutPanel.Location = new Point(0, 73);
+            flowLayoutPanel.Margin = new Padding(5);
+            flowLayoutPanel.Name = "flowLayoutPanel";
+            flowLayoutPanel.Padding = new Padding(10);
+            flowLayoutPanel.Size = new Size(368, 65);
+            flowLayoutPanel.TabIndex = 4;
+            // 
             // errorProvider
             // 
             errorProvider.ContainerControl = this;
             // 
-            // FormAddGenre
+            // FormAddUpdateStatuses
             // 
             AutoScaleDimensions = new SizeF(11F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -125,10 +125,12 @@
             ClientSize = new Size(368, 138);
             Controls.Add(panelFill);
             Controls.Add(flowLayoutPanel);
-            Font = new Font("Segoe UI", 14F);
+            Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Margin = new Padding(5);
-            Name = "FormAddGenre";
-            Text = "Информация о жанре аниме";
+            Name = "FormAddUpdateStatuses";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Добавить статус";
+            TextChanged += textBoxStatusName_TextChanged;
             panelFill.ResumeLayout(false);
             panelFill.PerformLayout();
             flowLayoutPanel.ResumeLayout(false);
@@ -140,12 +142,12 @@
 
         #endregion
 
-        protected internal TextBox textBoxGenreName;
-        private Label labelGenreName;
         private Panel panelFill;
-        private FlowLayoutPanel flowLayoutPanel;
+        protected internal TextBox textBoxStatusName;
+        private Label labelTypeName;
         private Button btnSaveChanges;
         private Button btnCancel;
+        private FlowLayoutPanel flowLayoutPanel;
         private ErrorProvider errorProvider;
     }
 }

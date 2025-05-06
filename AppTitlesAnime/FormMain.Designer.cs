@@ -32,6 +32,7 @@
             btnShowGenres = new Button();
             btnShowStatuses = new Button();
             flowLayoutPanel = new FlowLayoutPanel();
+            btnShowTittles = new Button();
             flowLayoutPanel.SuspendLayout();
             SuspendLayout();
             // 
@@ -51,9 +52,9 @@
             // 
             btnShowGenres.AutoSize = true;
             btnShowGenres.BackColor = Color.White;
-            btnShowGenres.Location = new Point(387, 13);
+            btnShowGenres.Location = new Point(13, 54);
             btnShowGenres.Name = "btnShowGenres";
-            btnShowGenres.Size = new Size(436, 35);
+            btnShowGenres.Size = new Size(368, 35);
             btnShowGenres.TabIndex = 1;
             btnShowGenres.Text = "Отобразить список жанров аниме";
             btnShowGenres.UseVisualStyleBackColor = true;
@@ -63,9 +64,9 @@
             // 
             btnShowStatuses.AutoSize = true;
             btnShowStatuses.BackColor = Color.White;
-            btnShowStatuses.Location = new Point(829, 13);
+            btnShowStatuses.Location = new Point(13, 95);
             btnShowStatuses.Name = "btnShowStatuses";
-            btnShowStatuses.Size = new Size(436, 35);
+            btnShowStatuses.Size = new Size(368, 35);
             btnShowStatuses.TabIndex = 2;
             btnShowStatuses.Text = "Отобразить список статусов  аниме";
             btnShowStatuses.UseVisualStyleBackColor = true;
@@ -76,23 +77,37 @@
             flowLayoutPanel.Controls.Add(btnShowTypes);
             flowLayoutPanel.Controls.Add(btnShowGenres);
             flowLayoutPanel.Controls.Add(btnShowStatuses);
+            flowLayoutPanel.Controls.Add(btnShowTittles);
             flowLayoutPanel.Dock = DockStyle.Fill;
             flowLayoutPanel.Location = new Point(0, 0);
             flowLayoutPanel.Name = "flowLayoutPanel";
             flowLayoutPanel.Padding = new Padding(10);
-            flowLayoutPanel.Size = new Size(1284, 661);
+            flowLayoutPanel.Size = new Size(401, 225);
             flowLayoutPanel.TabIndex = 3;
+            // 
+            // btnShowTittles
+            // 
+            btnShowTittles.AutoSize = true;
+            btnShowTittles.BackColor = Color.White;
+            btnShowTittles.Location = new Point(13, 136);
+            btnShowTittles.Name = "btnShowTittles";
+            btnShowTittles.Size = new Size(368, 35);
+            btnShowTittles.TabIndex = 3;
+            btnShowTittles.Text = "Отобразить список аниме";
+            btnShowTittles.UseVisualStyleBackColor = true;
+            btnShowTittles.Click += BtnShowTittles_Click;
             // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(11F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1284, 661);
+            ClientSize = new Size(401, 225);
             Controls.Add(flowLayoutPanel);
             Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Margin = new Padding(5);
             Name = "FormMain";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Главная форма";
             flowLayoutPanel.ResumeLayout(false);
             flowLayoutPanel.PerformLayout();
@@ -105,5 +120,6 @@
         private Button btnShowGenres;
         private Button btnShowStatuses;
         private FlowLayoutPanel flowLayoutPanel;
+        private Button btnShowTittles;
     }
 }

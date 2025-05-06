@@ -3,49 +3,49 @@ using AppContext = AppTitlesAnime.Modules.AppContext;
 
 namespace AppTitlesAnime
 {
-    public partial class FormAddStatuses : Form
+    public partial class FormAddUpdateType : Form
     {
         private AppContext db;
 
-        public FormAddStatuses()
+        public FormAddUpdateType()
         {
             InitializeComponent();
             db = new AppContext(); 
         }
 
-        private void textBoxStatusName_TextChanged(object sender, EventArgs e)
+        private void TextBoxTypeName_TextChanged(object sender, EventArgs e)
         {
-            ValidateStatusName();
+            ValidateTypeName();
         }
 
-        private void textBoxStatusName_Validating(object sender, CancelEventArgs e)
+        private void TextBoxTypeName_Validating(object sender, CancelEventArgs e)
         {
-            ValidateStatusName();
+            ValidateTypeName();
         }
 
-        private void ValidateStatusName()
+        private void ValidateTypeName()
         {
-            if (String.IsNullOrEmpty(textBoxStatusName.Text))
+            if (String.IsNullOrEmpty(textBoxTypeName.Text))
             {
-                errorProvider.SetError(textBoxStatusName, "Поле не может быть пустым");
+                errorProvider.SetError(textBoxTypeName, "Поле не может быть пустым");
                 btnSaveChanges.Enabled = false;
                 return;
             }
 
-            string userStatus = textBoxStatusName.Text.Trim();
+            string typeName = textBoxTypeName.Text.Trim();
 
             try
             {
-                bool statusExists = db.Statuses.Any(g => g.StatusName.ToLower() == userStatus.ToLower());
+                bool typeExists = db.Types.Any(t => t.TypeName.ToLower() == typeName.ToLower());
 
-                if (statusExists)
+                if (typeExists)
                 {
-                    errorProvider.SetError(textBoxStatusName, "Такой объект уже существует");
+                    errorProvider.SetError(textBoxTypeName, "Такой объект уже существует");
                     btnSaveChanges.Enabled = false;
                 }
                 else
                 {
-                    errorProvider.SetError(textBoxStatusName, string.Empty);
+                    errorProvider.SetError(textBoxTypeName, string.Empty);
                     btnSaveChanges.Enabled = true;
                 }
             }

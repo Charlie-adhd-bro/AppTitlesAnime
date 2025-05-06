@@ -24,5 +24,12 @@ namespace AppTitlesAnime
             FormListStatuses formListStatuses = new FormListStatuses();
             formListStatuses.Show();
         }
+
+        private void BtnShowTittles_Click(object sender, EventArgs e)
+        {
+            FormListTittles formListStatuses = new FormListTittles();
+            formListStatuses.Show();
+        }
     }
 }
+

@@ -105,7 +105,7 @@
             panelFill.Margin = new Padding(5);
             panelFill.Name = "panelFill";
             panelFill.Padding = new Padding(10);
-            panelFill.Size = new Size(974, 341);
+            panelFill.Size = new Size(974, 441);
             panelFill.TabIndex = 9;
             // 
             // dataGridViewGenres
@@ -120,7 +120,7 @@
             dataGridViewGenres.Name = "dataGridViewGenres";
             dataGridViewGenres.ReadOnly = true;
             dataGridViewGenres.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewGenres.Size = new Size(954, 321);
+            dataGridViewGenres.Size = new Size(954, 421);
             dataGridViewGenres.TabIndex = 0;
             // 
             // errorProvider
@@ -132,12 +132,13 @@
             AutoScaleDimensions = new SizeF(11F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(974, 411);
+            ClientSize = new Size(974, 511);
             Controls.Add(panelFill);
             Controls.Add(flowLayoutPanel);
             Font = new Font("Segoe UI", 14.25F);
             Margin = new Padding(5);
             Name = "FormListGenres";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Список жанров аниме";
             flowLayoutPanel.ResumeLayout(false);
             flowLayoutPanel.PerformLayout();

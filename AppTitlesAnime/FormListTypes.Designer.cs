@@ -131,6 +131,7 @@
             Font = new Font("Segoe UI", 14.25F);
             Margin = new Padding(5);
             Name = "FormListTypes";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Список типов аниме";
             flowLayoutPanel.ResumeLayout(false);
             flowLayoutPanel.PerformLayout();
