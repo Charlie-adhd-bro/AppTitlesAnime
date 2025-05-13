@@ -83,6 +83,7 @@
             // 
             btnUpdateTittles.AutoSize = true;
             btnUpdateTittles.BackColor = SystemColors.Control;
+            btnUpdateTittles.Dock = DockStyle.Fill;
             btnUpdateTittles.Location = new Point(125, 13);
             btnUpdateTittles.Name = "btnUpdateTittles";
             btnUpdateTittles.Size = new Size(151, 40);

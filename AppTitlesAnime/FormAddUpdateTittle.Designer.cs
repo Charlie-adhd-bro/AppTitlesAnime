@@ -1,6 +1,6 @@
 ﻿namespace AppTitlesAnime
 {
-    partial class FormAddUpdateTiitle
+    partial class FormAddUpdateTittle
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddUpdateTiitle));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddUpdateTittle));
             flowLayoutPanel = new FlowLayoutPanel();
             btnSaveChanges = new Button();
             btnCancel = new Button();
@@ -120,15 +120,15 @@
             panelFill.Margin = new Padding(5);
             panelFill.Name = "panelFill";
             panelFill.Padding = new Padding(16, 17, 31, 17);
-            panelFill.Size = new Size(496, 695);
+            panelFill.Size = new Size(496, 616);
             panelFill.TabIndex = 3;
             // 
             // richTextBoxDescription
             // 
-            richTextBoxDescription.Dock = DockStyle.Top;
+            richTextBoxDescription.Dock = DockStyle.Fill;
             richTextBoxDescription.Location = new Point(16, 390);
             richTextBoxDescription.Name = "richTextBoxDescription";
-            richTextBoxDescription.Size = new Size(449, 203);
+            richTextBoxDescription.Size = new Size(449, 209);
             richTextBoxDescription.TabIndex = 13;
             richTextBoxDescription.Text = resources.GetString("richTextBoxDescription.Text");
             // 
@@ -168,6 +168,7 @@
             numericUpDownDuration.Dock = DockStyle.Top;
             numericUpDownDuration.Location = new Point(16, 274);
             numericUpDownDuration.Margin = new Padding(13);
+            numericUpDownDuration.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
             numericUpDownDuration.Name = "numericUpDownDuration";
             numericUpDownDuration.Size = new Size(449, 33);
             numericUpDownDuration.TabIndex = 9;
@@ -254,17 +255,17 @@
             labelOriginalName.TabIndex = 0;
             labelOriginalName.Text = "Оригинальное имя";
             // 
-            // FormAddUpdateTiitle
+            // FormAddUpdateTittle
             // 
             AutoScaleDimensions = new SizeF(11F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(496, 695);
-            Controls.Add(flowLayoutPanel);
             Controls.Add(panelFill);
+            Controls.Add(flowLayoutPanel);
             Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Margin = new Padding(5);
-            Name = "FormAddUpdateTiitle";
+            Name = "FormAddUpdateTittle";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Информация об аниме";
             flowLayoutPanel.ResumeLayout(false);
