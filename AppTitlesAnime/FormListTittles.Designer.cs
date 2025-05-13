@@ -77,7 +77,7 @@
             btnAddTittles.TabIndex = 3;
             btnAddTittles.Text = "Добавить";
             btnAddTittles.UseVisualStyleBackColor = true;
-            btnAddTittles.Click += btnAddTittles_Click;
+            btnAddTittles.Click += BtnAddTittles_Click;
             // 
             // btnUpdateTittles
             // 
@@ -91,7 +91,7 @@
             btnUpdateTittles.Text = "Редактировать";
             btnUpdateTittles.UseMnemonic = false;
             btnUpdateTittles.UseVisualStyleBackColor = true;
-            btnUpdateTittles.Click += btnUpdateTittles_Click;
+            btnUpdateTittles.Click += BtnUpdateTittles_Click;
             // 
             // btnDeleteTittles
             // 
@@ -103,7 +103,7 @@
             btnDeleteTittles.TabIndex = 5;
             btnDeleteTittles.Text = "Удалить";
             btnDeleteTittles.UseVisualStyleBackColor = true;
-            btnDeleteTittles.Click += btnDeleteTittles_Click;
+            btnDeleteTittles.Click += BtnDeleteTittles_Click;
             // 
             // panelFill
             // 

@@ -20,20 +20,8 @@ namespace AppTitlesAnime
             base.OnLoad(e);
             this.db = new AppContext();
             this.db.Types.Load();
-            this.dataGridViewTittles.DataSource = this.db.AnimeTitles.
-                Include(i => i.Type).
-                Select(i => new
-                {
-                    i.Id,
-                    i.Type.TypeName,
-                    i.OriginalName,
-                    i.Name,
-                    i.CountSeries,
-                    i.Duration,
-                    i.Studio
-                }).
-                OrderBy(i => i.TypeName).
-                ThenBy(i => i.OriginalName).ToList();
+
+            LoadTitleAnime();
 
             //скрытие столбцов
             dataGridViewTittles.Columns["Id"].Visible = false;
@@ -54,11 +42,11 @@ namespace AppTitlesAnime
             this.db = null;
         }
 
-        private void btnAddTittles_Click(object sender, EventArgs e)
+        private void BtnAddTittles_Click(object sender, EventArgs e)
         {
             FormAddUpdateTittle formAddUpdateTittle = new FormAddUpdateTittle();
 
-            List<Type> types= this.db.Types.Local.OrderBy(i => i.TypeName).ToList();
+            List<Type> types = this.db.Types.Local.OrderBy(i => i.TypeName).ToList();
             formAddUpdateTittle.comboBoxType.DataSource = types;
             formAddUpdateTittle.comboBoxType.DisplayMember = "TypeName";
             formAddUpdateTittle.comboBoxType.ValueMember = "Id";
@@ -77,8 +65,8 @@ namespace AppTitlesAnime
                 Studio = formAddUpdateTittle.textBoxStudio.Text,
                 Description = formAddUpdateTittle.richTextBoxDescription.Text
 
-            }; 
-            
+            };
+
             Type type = (Type)formAddUpdateTittle.comboBoxType.SelectedItem;
             animeTitle.IdType = type.Id;
 
@@ -86,25 +74,11 @@ namespace AppTitlesAnime
             db.SaveChanges();
 
             MessageBox.Show("Новый объект добавлен", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
-            this.dataGridViewTittles.DataSource = db.AnimeTitles.
-                Include (i => i.Type).
-                Select(i => new
-                {
-                    i.Id,
-                    i.Type.TypeName,
-                    i.OriginalName,
-                    i.Name,
-                    i.CountSeries,
-                    i.Duration,
-                    i.Studio
-                }).
-                OrderBy(i => i.TypeName).ThenBy(i => i.OriginalName).ToList();
 
-
+            LoadTitleAnime();
         }
 
-        private void btnUpdateTittles_Click(object sender, EventArgs e)
+        private void BtnUpdateTittles_Click(object sender, EventArgs e)
         {
             if (dataGridViewTittles.SelectedRows.Count == 0)
                 return;
@@ -155,6 +129,46 @@ namespace AppTitlesAnime
             MessageBox.Show("Объект изменен", "",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+           
+
+        }
+
+        private void BtnDeleteTittles_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewTittles.SelectedRows.Count == 0)
+                return;
+
+            DialogResult result = MessageBox.Show(
+                "Вы уверенны, что хотите удалить объект? " +
+                "\nВсе связанные данные будут удалены",
+                "", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+                );
+
+            if (result == DialogResult.No)
+                return;
+
+             int index = dataGridViewTittles.SelectedRows[0].Index;
+            int id = 0;
+            bool converted = Int32.TryParse(dataGridViewTittles[0, index].Value.ToString(), out id);
+            if (!converted)
+                return;
+
+
+            AnimeTitle animeTittle = db.AnimeTitles.Find(id);
+
+            db.AnimeTitles.Remove(animeTittle);
+            db.SaveChanges();
+
+            MessageBox.Show("Объект удален", "",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            LoadTitleAnime();
+
+        }
+
+        private void LoadTitleAnime()
+        {
             this.dataGridViewTittles.DataSource = db.AnimeTitles.
                Include(i => i.Type).
                Select(i => new
@@ -168,12 +182,6 @@ namespace AppTitlesAnime
                    i.Studio
                }).
                OrderBy(i => i.TypeName).ThenBy(i => i.OriginalName).ToList();
-
-        }
-
-        private void btnDeleteTittles_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
